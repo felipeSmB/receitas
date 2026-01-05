@@ -26,10 +26,12 @@
             font-weight: bold;
         }
 
-        /* CAPA COM IMG */
+        /* CAPA REDIMENSIONÁVEL */
         #capa {
             position: relative;
-            height: 400px;
+            width: 100%;
+            max-height: 400px;
+            height: auto;
             border-radius: 10px;
             margin-bottom: 20px;
             overflow: hidden;
@@ -41,34 +43,38 @@
         }
 
         #capa img {
-            position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: cover;       /* cobre toda a área sem deformar */
-            object-position: center; /* foca no centro da imagem */
+            object-fit: cover;       /* cobre todo o bloco sem distorcer */
+            object-position: center; /* logo sempre centralizada */
+            max-height: 400px;       /* não fica gigante */
             z-index: 0;
+            display: block;
         }
 
         .capa-content {
-            position: relative;
-            z-index: 1; /* texto acima da imagem */
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            text-align: center;
+            padding: 0 10px;
         }
 
         .capa-content h1 {
-            font-size: 40px;
+            font-size: 36px;
             margin: 0;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
         }
 
         .capa-content p {
-            font-size: 18px;
+            font-size: 16px;
             margin: 10px 0 20px 0;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
 
         .btn-capa {
             background-color: #ff6f61;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 6px;
             color: white;
             text-decoration: none;
@@ -133,16 +139,19 @@
         /* RESPONSIVO */
         @media screen and (max-width: 768px) {
             #capa {
-                height: 300px;
+                max-height: 300px;
+            }
+            #capa img {
+                max-height: 300px;
             }
             .capa-content h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
             .capa-content p {
-                font-size: 16px;
+                font-size: 14px;
             }
             .btn-capa {
-                padding: 10px 20px;
+                padding: 8px 16px;
             }
         }
 
