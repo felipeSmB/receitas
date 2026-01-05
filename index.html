@@ -30,8 +30,8 @@
         #capa {
             position: relative;
             width: 100%;
-            max-height: 300px;
-            height: auto;
+            height: 0;
+            padding-top: 40%;       /* altura proporcional à largura */
             border-radius: 10px;
             margin-bottom: 20px;
             overflow: hidden;
@@ -43,13 +43,14 @@
         }
 
         #capa img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;       /* cobre todo o bloco sem distorcer */
-            object-position: center; /* logo sempre centralizada */
-            max-height: 300px;       /* não fica gigante */
+            object-fit: cover;
+            object-position: center;
             z-index: 0;
-            display: block;
         }
 
         .capa-content {
@@ -103,7 +104,7 @@
             text-align: left;
         }
 
-        img {
+        img.recipe-img {
             width: 150px;
             border-radius: 8px;
             cursor: pointer;
@@ -139,10 +140,7 @@
         /* RESPONSIVO */
         @media screen and (max-width: 768px) {
             #capa {
-                max-height: 300px;
-            }
-            #capa img {
-                max-height: 300px;
+                padding-top: 50%;  /* aumenta proporcionalmente em mobile */
             }
             .capa-content h1 {
                 font-size: 28px;
@@ -154,7 +152,6 @@
                 padding: 8px 16px;
             }
         }
-
     </style>
 </head>
 <body>
@@ -168,6 +165,15 @@
         <a href="#tabela" class="btn-capa">Ver Receitas</a>
     </div>
 </section>
+
+<!-- MENU -->
+<header>
+    <nav>
+        <a href="#tabela">Tabela de Receitas</a>
+        <a href="#lista">Lista de Ingredientes</a>
+        <a href="#imagens">Imagens</a>
+    </nav>
+</header>
 
 <!-- TABELA DE RECEITAS -->
 <section id="tabela">
@@ -200,9 +206,9 @@
 <!-- IMAGENS DAS RECEITAS -->
 <section id="imagens">
     <h2>Imagens das Receitas</h2>
-    <img src="bolo.jpg" alt="Bolo de Chocolate" onclick="mostrarReceita('Bolo de Chocolate', 'Modo de preparo: 1. Pré-aqueça o forno a 180°C. 2. Misture a farinha, o açúcar e o chocolate em pó. 3. Acrescente os ovos e o leite e misture bem. 4. Despeje a massa numa forma untada e leve ao forno por 40-50 minutos.')">
-    <img src="salada de frango.jpg" alt="Salada de Frango" onclick="mostrarReceita('Salada de Frango', 'Modo de preparo: 1. Cozinhe o peito de frango e desfie. 2. Corte a alface, tomate e cenoura em pedaços. 3. Misture todos os ingredientes numa tigela e tempere com azeite e sal.')">
-    <img src="panquecas.jpg" alt="Panquecas" onclick="mostrarReceita('Panquecas', 'Modo de preparo: 1. Misture a farinha, os ovos, leite e açúcar até formar uma massa homogénea. 2. Aqueça uma frigideira com manteiga e despeje a massa. 3. Cozinhe até dourar dos dois lados.')">
+    <img class="recipe-img" src="bolo.jpg" alt="Bolo de Chocolate" onclick="mostrarReceita('Bolo de Chocolate', 'Modo de preparo: 1. Pré-aqueça o forno a 180°C. 2. Misture a farinha, o açúcar e o chocolate em pó. 3. Acrescente os ovos e o leite e misture bem. 4. Despeje a massa numa forma untada e leve ao forno por 40-50 minutos.')">
+    <img class="recipe-img" src="salada de frango.jpg" alt="Salada de Frango" onclick="mostrarReceita('Salada de Frango', 'Modo de preparo: 1. Cozinhe o peito de frango e desfie. 2. Corte a alface, tomate e cenoura em pedaços. 3. Misture todos os ingredientes numa tigela e tempere com azeite e sal.')">
+    <img class="recipe-img" src="panquecas.jpg" alt="Panquecas" onclick="mostrarReceita('Panquecas', 'Modo de preparo: 1. Misture a farinha, os ovos, leite e açúcar até formar uma massa homogénea. 2. Aqueça uma frigideira com manteiga e despeje a massa. 3. Cozinhe até dourar dos dois lados.')">
 </section>
 
 <!-- INFO DA RECEITA -->
@@ -228,7 +234,3 @@
 
 </body>
 </html>
-
-
-
-
